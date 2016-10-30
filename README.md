@@ -1,71 +1,27 @@
-# Painting
-Painting in numerical models
+# painting
 
+> Painting in computer models
 
-# Getting Started
+## Build Setup
 
-Make sure you have [node.js](https://nodejs.org/en/) (>=4.0) installed, preferably through your package manager or using nvm.
+``` bash
+# install dependencies
+npm install
 
-#### Install gulp, bower and the latest version of npm and a few test scripts globally:
+# serve with hot reload at localhost:8080
+npm run dev
 
-```sh
-$ npm install --global npm
-$ npm install --global bower
-$ npm install --global gulp
-$ npm install --global eslint
-$ npm install --global mocha
-$ npm install --global istanbul
+# build for production with minification
+npm run build
+
+# run unit tests
+npm run unit
+
+# run e2e tests
+npm run e2e
+
+# run all tests
+npm test
 ```
 
-You can also install scss_lint if you want to check the stylesheets
-```sh
-$ gem install scss_lint
-```
-
-#### Install packages a
-```sh
-$ npm install
-$ bower install
-```
-
-#### Run gulp:
-
-Serve a local development website:
-```sh
-$ gulp serve
-```
-
-Build a static website:
-```sh
-$ gulp
-```
-
-Run the tests
-```sh
-$ gulp test
-```
-
-Run the ui tests
-```sh
-$ gulp serve:test
-```
-
-Inject dependencies in the html pages:
-```sh
-$ gulp wiredep
-```
-
-Check the javascript:
-```sh
-$ gulp lint
-```
-
-Check the stylesheets:
-```sh
-$ gulp lint:scss
-```
-
-Check the tests:
-```sh
-$ gulp lint:test
-```
+For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
