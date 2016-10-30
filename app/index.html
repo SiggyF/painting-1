@@ -15,8 +15,7 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="/bower_components/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="/bower_components/mapbox.js/mapbox.css" />
-    <link rel="stylesheet" href="/bower_components/seiyria-bootstrap-slider/dist/css/bootstrap-slider.css" />
-    <link rel="stylesheet" href="/bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css" />
+    <link rel="stylesheet" href="/bower_components/material-design-lite/material.min.css" />
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -30,12 +29,12 @@
 
     <template id="models-overview-template" >
       <div>
-        <div v-for="model in models" class="model" id="{{ model.id }}">
+        <div v-for="model in models" class="model" :id="model.id">
           <div class="row">
             <div class="col-xs-12">
               <h2>{{ model.title }}</h2>
               <p>{{ model.abstract }}</p>
-              <a @click="selectModel(model)" class="btn btn-primary btn-xs load-model" data-id="{{ model.id }}">
+              <a @click="selectModel(model)" class="btn btn-primary btn-xs load-model" :data-id="model.id">
                 <i class="fa fa-play"></i>
               </a>
             </div>
@@ -110,8 +109,8 @@
         <div id="uv-container" v-if="model">
           <video v-if="model.uv.tag == 'video'"
                  id="uv" autoplay loop
-                 width="{{ model.width }}"
-                 height="{{ model.height }}"
+                 :width="model.width"
+                 :height="model.height"
                  :src="model.uv.src"
                  >
           </video>
@@ -119,8 +118,8 @@
           <img v-if="model.uv.tag == 'img'"
                id="uv"
                autoplay loop
-               width="{{ model.width }}"
-               height="{{ model.height }}"
+               :width="model.width"
+               :height="model.height"
                :src="model.uv.src"
                />
         </div>
@@ -130,7 +129,9 @@
     <template id="particle-component-template">
       <div class="hidden layer">
         <div v-if="model">
-          <canvas id="uvhidden" width="{{ model.uv.width }}" height="{{ model.uv.height }}"></canvas>
+          <canvas id="uvhidden"
+                  :width="model.uv.width"
+                  :height="model.uv.height"></canvas>
         </div>
 
       </div>
@@ -197,12 +198,12 @@
               <palette-chart :palette="palette"></palette-chart>
               <h4>Controls for drawing and map</h4>
               <drawing-controls :sketch="sketch"></drawing-controls>
-              <map-controls v-ref:map-controls :map="map" ></map-controls>
+              <map-controls ref="mapControls" :map="map" ></map-controls>
             </div>
           </div>
         </div>
         <map-container
-           v-ref:map-container
+           ref="mapContainer"
            :map.sync="map"
            :model="model"
            :sidebar="settings.sidebar"
@@ -212,14 +213,14 @@
       </div>
       <story-container v-if="settings.story"></story-container>
       <particle-component
-         v-ref:particle-component
+         ref="particleComponent"
          :sketch="sketch"
          :pipeline="pipeline"
          :model="model"
          ></particle-component>
       <!-- Hidden layers -->
       <div class="hidden layer">
-        <uv-source :model="model" v-ref:uv-source></uv-source>
+        <uv-source :model="model" ref="uvSource"></uv-source>
         <div>
           <canvas id="canvas-icon" width="10" height="10"></canvas>
         </div>
@@ -237,35 +238,16 @@
     <script src="/bower_components/lodash/lodash.js"></script>
     <script src="/bower_components/leaflet/dist/leaflet-src.js"></script>
     <script src="/bower_components/mapbox.js/mapbox.js"></script>
-    <script src="/bower_components/sidebar-v2/js/jquery-sidebar.js"></script>
-    <script src="/bower_components/sidebar-v2/js/leaflet-sidebar.js"></script>
     <script src="/bower_components/handlebars/handlebars.js"></script>
-    <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="/bower_components/jquery-bridget/jquery-bridget.js"></script>
-    <script src="/bower_components/seiyria-bootstrap-slider/js/bootstrap-slider.js"></script>
     <script src="/bower_components/pixi.js/bin/pixi.js"></script>
     <script src="/bower_components/d3/d3.js"></script>
-    <script src="/bower_components/bootstrap-switch/dist/js/bootstrap-switch.js"></script>
-    <script src="/bower_components/vue-router/dist/vue-router.js"></script>
     <script src="/bower_components/vue/dist/vue.js"></script>
     <script src="/bower_components/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js"></script>
     <script src="/bower_components/scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js"></script>
+    <script src="/bower_components/material-design-lite/material.min.js"></script>
+    <script src="/bower_components/sidebar-v2/js/jquery-sidebar.js"></script>
+    <script src="/bower_components/sidebar-v2/js/leaflet-sidebar.js"></script>
     <!-- endbower -->
-    <!-- endbuild -->
-
-    <!-- build:js scripts/plugins.js -->
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
     <!-- endbuild -->
 
     <!-- build:js scripts/main.js -->

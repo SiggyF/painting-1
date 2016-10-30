@@ -2,25 +2,24 @@
   "name": "painting",
   "private": true,
   "dependencies": {
-    "bootstrap-sass": "*",
     "fetch": "*",
     "es6-promise": "*",
     "lodash": "*",
     "leaflet": "*",
     "leaflet-editable-handlers": "*",
     "mapbox.js": "*",
-    "sidebar-v2": "~0.2.1",
     "fontawesome": "~4.4.0",
     "handlebars": "~3.0.3",
-    "seiyria-bootstrap-slider": "~4.13.1",
     "pixi.js": "~3.0.7",
     "d3": "~4.2.2",
     "open-sans-fontface": "~1.4.2",
-    "bootstrap-switch": "~3.3.2",
-    "vue-router": "^0.7.13",
-    "vue": "^1.0.26",
+    "vue-router": "^2.0.1",
+    "vue": "^2.0.3",
     "modernizr": "^2",
-    "scrollmagic": "^2.0.5"
+    "scrollmagic": "^2.0.5",
+    "material-design-lite": "^1.2.1",
+    "jquery": "^3.1.1",
+    "sidebar-v2": "~0.2.1"
   },
   "overrides": {
     "pixi.js": {
@@ -34,16 +33,6 @@
         "js/jquery-sidebar.js",
         "js/leaflet-sidebar.js"
       ]
-    },
-    "bootstrap-sass": {
-      "main": [
-        "assets/stylesheets/_bootstrap.scss",
-        "assets/fonts/bootstrap/*",
-        "assets/javascripts/bootstrap.js"
-      ]
-    },
-    "dat-gui": {
-      "main": "build/dat.gui.js"
     },
     "open-sans-fontface": {
       "main": [
@@ -62,6 +51,11 @@
         "less/font-awesome.less",
         "scss/font-awesome.scss",
         "fonts/**/*"
+      ]
+    },
+    "vue": {
+      "main": [
+        "dist/vue.js"
       ]
     }
   },
