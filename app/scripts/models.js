@@ -19,6 +19,7 @@
     },
     ready: function() {
       // get models.json
+      console.log('ready', this);
       fetch('data/models.json')
         .then((response) => {
           return response.json();

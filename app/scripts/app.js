@@ -25,7 +25,6 @@ var app;
     el: '#app',
     ready: function() {
       this.$nextTick(function() {
-        $('input[type="checkbox"]').bootstrapSwitch();
       });
     },
     data: function() {

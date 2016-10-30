@@ -18,14 +18,6 @@
       locked: 'lockedChanged'
     },
     ready: function() {
-
-      $('#lockmap').on('switchChange.bootstrapSwitch', () => {
-        if ($('#lockmap').is(':checked')) {
-          this.locked = true;
-        } else {
-          this.locked = false;
-        }
-      });
     },
     methods: {
       lockedChanged: function(oldVal, newVal) {
